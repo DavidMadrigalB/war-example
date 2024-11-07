@@ -12,8 +12,8 @@ pipeline {
 		stage('PackageDocker') {
 			steps {
 				//bat "echo hola"
-				bat 'mvn clean'
-				bat 'mvn -B -q -P docker-build clean package'
+				bat 'mvn clean install -U'
+				bat 'mvn -B -q -P docker-build package'
 				//bat 'mvn -B -q package'
 			}
 		}
