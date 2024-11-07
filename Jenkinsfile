@@ -18,6 +18,11 @@ pipeline {
 		}
 
 		stage('Deploy') {
+			when {
+				not {
+					equals expected: 'ninguno', actual: params.DEPLOY_ENVIRONMENT
+				}
+			}
 			steps {
 				//bat 'D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\tomcat1\\bin\\shutdown.bat'
 				bat 'copy target/ROOT.war D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\' + params.DEPLOY_ENVIRONMENT + '\\webapps'
