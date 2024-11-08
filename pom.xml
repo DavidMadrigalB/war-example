@@ -20,9 +20,9 @@
     <dependencies>
         <!-- Ejemplo de dependencia con exclusión de commons-io -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.10</version> <!-- Ejemplo de versión, ajusta según tus necesidades -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.17.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-io</groupId>
