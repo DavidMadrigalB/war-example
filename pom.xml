@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>bootcamp.jenkins</groupId>
-	<artifactId>war-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>war-example</name>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>bootcamp.jenkins</groupId>
+    <artifactId>war-example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>war-example</name>
 
-	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<enableAssertions>true</enableAssertions>
-	</properties>
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <enableAssertions>true</enableAssertions>
+    </properties>
 
-	<dependencies>
+    <dependencies>
+        <!-- Ejemplo de dependencia con exclusión de commons-io -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.7.10</version> <!-- Ejemplo de versión, ajusta según tus necesidades -->
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
-		<!--dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.6</version>
-		</dependency-->
-
-	</dependencies>
-	<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -42,8 +48,8 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.3</version>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
@@ -76,22 +82,13 @@
         </plugins>
     </build>
 
-<exclusions>
-        <exclusion>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </exclusion>
-    </exclusions>
-
-	<profiles>
-
-		<profile>
-			<id>docker-build</id>
-			<build>
-				<finalName>ROOT</finalName>
-			</build>
-		</profile>
-
-	</profiles>
+    <profiles>
+        <profile>
+            <id>docker-build</id>
+            <build>
+                <finalName>ROOT</finalName>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
