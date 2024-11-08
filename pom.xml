@@ -76,6 +76,13 @@
         </plugins>
     </build>
 
+<exclusions>
+        <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </exclusion>
+    </exclusions>
+
 	<profiles>
 
 		<profile>
