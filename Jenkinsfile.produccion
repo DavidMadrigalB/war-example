@@ -6,9 +6,9 @@ pipeline {
 
   	stages {
     		stage('Deployar en produccion') {
-      			when {
+      			/*when {
         			branch 'main'
-      			}
+      			}*/
 			steps {
 				// war-example-0.0.1.war
 				bat 'mvn -B -q clean install'
