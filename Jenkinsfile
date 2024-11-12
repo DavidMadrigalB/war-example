@@ -26,7 +26,7 @@ pipeline {
 			}
 			steps {
 				//bat 'D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\tomcat1\\bin\\shutdown.bat'
-				bat 'copy target/ROOT.war D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\' + params.DEPLOY_ENVIRONMENT + '\\webapps'
+				bat 'copy target\\ROOT.war D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\' + params.DEPLOY_ENVIRONMENT + '\\webapps'
 				//bat 'D:\\devenv\\JENKINS_CURSO\\AMBIENTES\\tomcat1\\bin\\startup.bat'
 			}
 		}
