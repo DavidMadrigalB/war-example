@@ -5,7 +5,7 @@ pipeline {
 	}
 
 	parameters {
-		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['tomcat1', 'tomcat2'], description: 'Ambiente de despliegue')
+		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['none', 'tomcat1', 'tomcat2'], description: 'Ambiente de despliegue')
 	}
 
 	stages {
